@@ -10,7 +10,12 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body><%
+    System.out.println("jhgxcghjk,");
+    System.out.println("jhgxcghjk,");
+    System.out.println("jhgxcghjk,");
+    System.out.println("jhgxcghjk,");
+%>
 
 </body>
 </html>
