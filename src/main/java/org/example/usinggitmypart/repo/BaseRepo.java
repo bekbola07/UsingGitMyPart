@@ -26,7 +26,6 @@ public class BaseRepo <T>{
             entityManager.getTransaction().begin();
             entityManager.persist(t);
             entityManager.getTransaction().commit();
-
         }catch (Exception e){
             entityManager.getTransaction().rollback();
             throw new RuntimeException();
