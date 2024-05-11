@@ -11,6 +11,9 @@
 <h1><%
     OrderRepo orderRepo = new OrderRepo();
     List<Order> all = orderRepo.getAll();
+    for (Order order : all) {
+        System.out.println(order);
+    }
 %>
 </h1>
 <br/>
