@@ -20,9 +20,10 @@ public class AddOrderServlet extends HttpServlet {
         HttpSession session = req.getSession();
         User currentUser = (User) session.getAttribute("currentUser");
         Order order = Order.builder()
-                .user(currentUser)
                 .name(name)
                 .build();
+        currentUser.getOrder().add(order);
+
         new OrderRepo().save(order);
         resp.sendRedirect("/");
 

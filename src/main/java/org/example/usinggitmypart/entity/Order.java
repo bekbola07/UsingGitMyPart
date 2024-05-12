@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.example.usinggitmypart.entity.templlete.ParentEntity;
 
+
 @EqualsAndHashCode(callSuper = true)
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
+@Entity
 @Table(name = "orders")
 public class Order extends ParentEntity {
     @Enumerated(EnumType.STRING)

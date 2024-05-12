@@ -29,13 +29,23 @@
 %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="navbar-nav ml-auto">
+        <% if (currentUser==null){
+
+        %>
         <a class="nav-item nav-link" href="/signup.jsp">Sign Up</a>
         <a class="nav-item nav-link" href="/login.jsp">Login</a>
+        <%}else {
+        %>
+        <a class="nav-item nav-link" href="/logout">Log out</a>
+        <%}%>
     </div>
 </nav>
 
 <div class="container mt-4">
     <h2>Orders</h2>
+    <%if(currentUser!=null){
+
+    %>
     <div class="mb-2">
         <a href="addOrder.jsp" class="btn btn-success">Create Order</a>
     </div>
@@ -53,8 +63,8 @@
             <td><%= order.getName() %></td>
             <td><%= order.getOrderStatus()  %></td>
             <td>
-                <button type="button" class="btn btn-primary">View</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <a class="btn btn-primary" href="/updateOrder.jsp?id=<%=order.getId()%>">Edit</a>
+                <a class="btn btn-danger" href="/deleteOrder?id=<%=order.getId()%>">Delete</a>
             </td>
         </tr>
         <% } %>
