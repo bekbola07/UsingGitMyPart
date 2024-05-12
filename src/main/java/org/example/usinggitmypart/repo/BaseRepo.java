@@ -1,6 +1,7 @@
 package org.example.usinggitmypart.repo;
 
 import jakarta.persistence.EntityManager;
+import org.example.usinggitmypart.entity.Order;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -63,5 +64,6 @@ public class BaseRepo <T>{
             throw new RuntimeException(e);
         }
     }
+
 
 }

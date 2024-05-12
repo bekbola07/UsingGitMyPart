@@ -1,13 +1,17 @@
 <%@ page import="org.example.usinggitmypart.entity.Order" %>
-<%@ page import="java.util.List" %>
 <%@ page import="org.example.usinggitmypart.entity.User" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %><%--
+  Created by IntelliJ IDEA.
+  User: OSIYOcomputers
+  Date: 12.05.2024
+  Time: 17:14
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>JSP - Hello World</title>
-    <link rel="stylesheet" href="static/bootstrap.css">
+    <title>Title</title>
     <style>
         .navbar-nav {
             margin-left: auto;
@@ -72,8 +76,6 @@
         </tbody>
     </table>
 </div>
-
-
 
 </body>
 </html>

@@ -1,4 +1,8 @@
-<%--
+<%@ page import="org.example.usinggitmypart.entity.OrderStatus" %>
+<%@ page import="org.example.usinggitmypart.entity.Order" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.UUID" %>
+<%@ page import="org.example.usinggitmypart.repo.OrderRepo" %><%--
   Created by IntelliJ IDEA.
   User: OSIYOcomputers
   Date: 12.05.2024
@@ -10,25 +14,32 @@
 <head>
     <title>Update order</title>
     <link rel="stylesheet" href="static/bootstrap.css">
+    <%
+        // Assuming you have a method to retrieve order by ID from OrderRepo
+        UUID orderId = UUID.fromString(request.getParameter("id"));
+        Order order = new OrderRepo().getById(orderId);
+
+        // Assuming you have a method to get all order status values
+        List<OrderStatus> orderStatusValues = List.of(OrderStatus.values());
+    %>
 </head>
 <body>
 <div class="container">
     <h2>Update Order</h2>
     <form action="updateOrder" method="post">
         <div class="form-group">
-            <label for="orderId">Order ID:</label>
-            <input type="text" class="form-control" id="orderId" name="orderId" value="${order.id}" readonly>
+            <input type="hidden" class="form-control" id="id" name="id" value="<%= order.getId() %>" readonly>
         </div>
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" name="name" value="${order.name}">
+            <input type="text" class="form-control" id="name" name="name" value="<%= order.getName() %>">
         </div>
         <div class="form-group">
             <label for="status">Status:</label>
             <select class="form-control" id="status" name="status">
-                <option value="CREATED" <c:if test="${order.orderStatus == 'CREATED'}">selected</c:if>>Created</option>
-                <option value="PROCESSING" <c:if test="${order.orderStatus == 'PROCESSING'}">selected</c:if>>Processing</option>
-                <option value="COMPLETED" <c:if test="${order.orderStatus == 'COMPLETED'}">selected</c:if>>Completed</option>
+                <% for (OrderStatus status : orderStatusValues) { %>
+                <option value="<%= status %>" <%= (status == order.getOrderStatus()) ? "selected" : "" %>><%= status %></option>
+                <% } %>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
