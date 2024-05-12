@@ -20,12 +20,13 @@ public class BaseRepo <T>{
             entityClass = (Class<T>) typeArgs[0];
         }
     }
-    public void save(T t){
+    public T save(T t){
         EntityManager entityManager = emf.createEntityManager();
         try{
             entityManager.getTransaction().begin();
             entityManager.persist(t);
             entityManager.getTransaction().commit();
+            return t;
         }catch (Exception e){
             entityManager.getTransaction().rollback();
             throw new RuntimeException();
